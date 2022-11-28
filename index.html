@@ -173,8 +173,35 @@
     error.addEventListener('click', function() {
       console.error("You are not a mistake");
     });
+/*
+    try {
+      let undef =dfds
+    } catch (err) {
+      throw("you gots an error");
+    } finally {
+      console.log("if console does not say 'you gots an error', it passed");
+    }
+*/
+    class DontGrabOption extends Error {
+      constructor(message) {
+        super(message);
+        this.name = "DontGrabOption";
+      }
+    }
 
+    function test() {
+      throw new DontGrabOption("Bruh");
+    }
+
+    try {
+      test();
+    } catch (err) {
+      throw(err.message);
+    } finally {
+      console.log("If no error 'bruh' then test passed");
+    }
     
   </script>
+  
 </body>
 </html>
