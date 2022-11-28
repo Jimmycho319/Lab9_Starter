@@ -69,21 +69,21 @@
     </form>
 
     <section id="error-btns">
-      <button>Console Log</button>
-      <button>Console Error</button>
-      <button>Console Count</button>
-      <button>Console Warn</button>
-      <button>Console Assert</button>
-      <button>Console Clear</button>
-      <button>Console Dir</button>
-      <button>Console dirxml</button>
-      <button>Console Group Start</button>
-      <button>Console Group End</button>
-      <button>Console Table</button>
-      <button>Start Timer</button>
-      <button>End Timer</button>
-      <button>Console Trace</button>
-      <button>Trigger a Global Error</button>
+      <button id="log">Console Log</button>
+      <button id="error">Console Error</button>
+      <button id="count">Console Count</button>
+      <button id="warn">Console Warn</button>
+      <button id="assert">Console Assert</button>
+      <button id="clear">Console Clear</button>
+      <button id="dir">Console Dir</button>
+      <button id="dirxml">Console dirxml</button>
+      <button id="group-start">Console Group Start</button>
+      <button id="group-end">Console Group End</button>
+      <button id="table">Console Table</button>
+      <button id="start-timer">Start Timer</button>
+      <button id="end-timer">End Timer</button>
+      <button id="trace">Console Trace</button>
+      <button id="global-error">Trigger a Global Error</button>
     </section>
   </main>
 
@@ -100,9 +100,81 @@
 
     let errorBtns = Array.from(document.querySelectorAll('#error-btns > button'));
 
+    let trace = document.getElementById('trace');
+    trace.addEventListener('click', function() {
+      console.trace();
+    });
+
+    let end_timer = document.getElementById('end-timer');
+    end_timer.addEventListener('click', function() {
+      console.timeEnd();
+    });
+
+    let start_timer = document.getElementById('start-timer');
+    start_timer.addEventListener('click', function() {
+      console.time();
+    });
+
+    let table = document.getElementById('table');
+    table.addEventListener('click', function() {
+      console.table([['Jimmy','C'],['Judd','A'],['Thomas','P']]);
+    });
+
+    let group_end = document.getElementById('group-end');
+    group_end.addEventListener('click', function() {
+      console.groupEnd();
+    });
+
+    let group_start = document.getElementById('group-start');
+    group_start.addEventListener('click', function() {
+      console.group();
+    });
+
+    let dirxml = document.getElementById('dirxml');
+    dirxml.addEventListener('click', function() {
+      console.dirxml(document.location);
+    });
+
+    let dir = document.getElementById('dir');
+    dir.addEventListener('click', function() {
+      console.dir(document.location);
+    });
+
+    let clear = document.getElementById('clear');
+    clear.addEventListener('click', function() {
+      console.countReset();
+      console.clear();
+    });
+
     // Start your code here
     // You may move this JS to another file if you wish
+    let assert = document.getElementById('assert');
+    assert.addEventListener('click', function() {
+      console.assert(2 === 3, 'hi');
+    });
+
+    let warn = document.getElementById('warn');
+    warn.addEventListener('click', function() {
+      console.warn('this is your warning');
+    });
+
+    let counter = 0;
+    let count = document.getElementById('count');
+    count.addEventListener('click', function() {
+      console.count();
+    });
+
+    let log = document.getElementById('log');
+    log.addEventListener('click', function() {
+      console.log("Console log message :)");
+    });
+
+    let error = document.getElementById('error');
+    error.addEventListener('click', function() {
+      console.error("You are not a mistake");
+    });
+
+    
   </script>
 </body>
-
 </html>
